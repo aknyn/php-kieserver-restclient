@@ -7,7 +7,7 @@ use Thrift\Transport\TTransport;
 /**
  * Class ThriftMessage
  *
- * @author aknyn <knyn@hmmdeutschland.de>
+ * @author Alexander Knyn <ich@alexander-knyn.de>
  * @package KieServerClient\Thrift
  */
 class Message

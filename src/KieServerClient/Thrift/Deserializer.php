@@ -8,7 +8,7 @@ use Thrift\Transport\TMemoryBuffer;
 /**
  * Class Deserializer
  *
- * @author aknyn <knyn@hmmdeutschland.de>
+ * @author Alexander Knyn <ich@alexander-knyn.de>
  * @package KieServerClient\Thrift
  */
 class Deserializer extends Message

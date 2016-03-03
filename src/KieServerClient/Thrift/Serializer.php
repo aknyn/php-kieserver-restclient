@@ -9,8 +9,8 @@ use Thrift\Transport\TMemoryBuffer;
 /**
  * Class ThriftSerializer
  *
- * @author aknyn <knyn@hmmdeutschland.de>
- * @package hmm\zhponline\base\thrift
+ * @author Alexander Knyn <ich@alexander-knyn.de>
+ * @package KieServerClient\Thrift
  */
 class Serializer extends Message
 {

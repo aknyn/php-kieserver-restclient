@@ -15,8 +15,8 @@ use Thrift\Exception\TException;
 /**
  * Class KieCommandManagerImpl
  *
- * @author aknyn <knyn@hmmdeutschland.de>
- * @package hmm\zhponline\base\kie
+ * @author Alexander Knyn <ich@alexander-knyn.de>
+ * @package KieServerClient
  */
 class KieServicesCommand
 {
