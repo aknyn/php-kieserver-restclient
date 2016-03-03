@@ -1,0 +1,20 @@
+{
+  "name": "aknyn/php-kieserver-restclient",
+  "description": "A CLI PHP RESTclient to connect to kie-server via apache thrift protocol",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Alexander Knyn",
+      "email": "ich@alexander-knyn.de",
+      "homepage": "http://alexander-knyn.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "apache/thrift": "0.9.*"
+  },
+  "autoload": {
+    "psr-0": {"": "src/"}
+  }
+}
