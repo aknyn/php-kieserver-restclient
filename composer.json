@@ -12,7 +12,8 @@
   ],
   "require": {
     "php": ">=5.3.3",
-    "apache/thrift": "0.9.*"
+    "apache/thrift": "0.9.*",
+    "jowy/rest-client": "0.1.*"
   },
   "autoload": {
     "psr-0": {"": "src/"}
