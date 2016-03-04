@@ -26,4 +26,4 @@ EOT
     );
 }
 
-$loader->add('Tests', __DIR__);
+//$loader->add('Examples', __DIR__);

@@ -2,8 +2,12 @@
 namespace KieServerClient\Rest;
 
 use Exception;
+use KieServerClient\Protocol\KieServicesException;
+use KieServerClient\Protocol\KieServicesResponse;
 use KieServerClient\Protocol\Response;
+use KieServerClient\Thrift\Deserializer;
 use RestClient\CurlRestClient;
+use TException;
 
 class ClientWrapper
 {
@@ -40,7 +44,7 @@ class ClientWrapper
      * Execute REST request and return response
      *
      * @throws Exception
-     * @return Response
+     * @return KieServicesResponse
      */
     public function executeRequest()
     {
@@ -56,6 +60,7 @@ class ClientWrapper
                 throw new Exception("Method {$this->request->getMethod()} not implemented yet");
         }
 
+        $response = new KieExecutionResponse($response, $this->request->getHeaders());
         return $this->handleResponse($response);
     }
 
@@ -84,14 +89,22 @@ class ClientWrapper
     }
 
     /**
-     * handle response from curl request
+     * Handle rest response
      *
-     * @param string|array $response
-     * @return array|KieExecutionResponse|string
+     * @param KieExecutionResponse $restResponse
+     * @return KieServicesResponse
+     * @throws KieServicesException
+     * @throws TException
      */
-    private function handleResponse($response)
+    private function handleResponse(KieExecutionResponse $restResponse)
     {
-        $response = new KieExecutionResponse($response, $this->request->getHeaders());
+        $response = new KieServicesResponse();
+        $deserializer = Deserializer::getInstance();
+        $deserializer->getDeserializedFromBuffer($response, $restResponse->getBody());
+
+        if ($response->response->kieServicesException instanceof KieServicesException) {
+            throw $response->response->kieServicesException;
+        }
 
         return $response;
     }
